@@ -1,10 +1,12 @@
+import BrowserRouter from 'react-router-dom'
+
 function App() {
   return (
-    <div className="App">
-        <p>
-          testing testing
-        </p>
-    </div>
+    <BrowserRouter>
+
+      <div className="App">
+      </div>
+    </BrowserRouter>
   );
 }
 
