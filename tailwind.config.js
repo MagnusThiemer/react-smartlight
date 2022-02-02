@@ -11,7 +11,8 @@ module.exports = {
         'setting-blue': '#94CAEA',
         'setting-purple': '#A594EA',
         'setting-pink': '#DE95EB',
-        'setting-orange': '#EBD095'
+        'setting-orange': '#EBD095',
+        'background-offwhite': '#F6F8FB'
       }
     },
   },

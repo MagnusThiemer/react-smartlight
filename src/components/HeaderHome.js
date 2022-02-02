@@ -3,8 +3,8 @@ import ProfileImage from './ProfileImage';
 
 const HeaderHome = () => {
     return ( 
-        <header className='bg-primary'>
-            <div className="flex justify-between p-6 items-center">
+        <header className='bg-primary w-screen'>
+            <div className="flex justify-between items-center p-6 max-w-full">
                 <H1 input='Control Panel' className='text-white text-2xl font-bold w-10'/>
                 <ProfileImage />
             </div>
