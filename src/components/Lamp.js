@@ -1,4 +1,4 @@
-import LampImage from '../assets/output-onlinepngtools.png'
+import LampImage from '../assets/light-bulb.svg'
 
 const Lamp = () => {
     return ( 
