@@ -8,7 +8,7 @@ import { MdOutlineCountertops } from 'react-icons/md'
 const LightsScrollMenu = ({array}) => {
     console.log(array)
     return ( 
-        <div className='ml-6 pb-6 pt-6'>
+        <div className='ml-6 pb-10 pt-6'>
             <ScrollMenu>
                 {array.map((item) => (
                     <Link to='' className="" key={item.id}>

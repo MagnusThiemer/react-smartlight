@@ -19,7 +19,7 @@ const LightSlider = () => {
                 }}
                 aria-label="Custom marks"
                 defaultValue={0}
-                step={0.2}
+                step={0.1}
                 marks
                 
                 valueLabelDisplay="off"
