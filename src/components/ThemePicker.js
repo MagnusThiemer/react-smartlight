@@ -22,7 +22,7 @@ const ThemePicker = () => {
 
     const themeButtonVariants = {
         hidden: {
-          x: '-100px',
+          x: '-70px',
           opacity: 1
         },
         visible: {
