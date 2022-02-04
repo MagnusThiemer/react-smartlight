@@ -22,10 +22,11 @@ const ColorPicker = () => {
         <div className='flex ml-6'>
             {colorClasses.map((color) => (
                 <motion.div 
-                    className={`rounded-full h-7 w-7 ${color}`}
+                    className={`rounded-full h-7 w-7 grid ${color}`}
                     variants={colorButtonVariants}
                     initial='hidden'
                     animate='visible'>
+                        {color == 'bg-white' && <div className='text-text-dark font-bold place-self-center'>+</div>}
                 </motion.div>
             ))}
   

@@ -12,7 +12,7 @@ const HeaderSettings = (props) => {
     return ( 
         <header className='bg-primary w-screen'>
             <div className="flex justify-between items-start px-6 pb-6 max-w-full">
-                <Link to='/home' className='flex items-center flex-wrap mt-6'>
+                <Link to='/' className='flex items-center flex-wrap mt-6'>
                     <MdOutlineArrowBackIos className='text-white text-2xl font-bold w-10' />
                     <H1 input={`${room.replace('-', ' ')}`} className='text-white text-2xl font-bold w-10'/>
                     <H3 

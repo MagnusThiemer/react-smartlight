@@ -4,6 +4,7 @@ import ColorPicker from '../components/ColorPicker';
 
 import LightSlider from '../components/LightSlider';
 import OnOffButton from '../components/OnOffButton';
+import ThemePicker from '../components/ThemePicker';
 
 const LightSettings = () => {
 
@@ -12,6 +13,7 @@ const LightSettings = () => {
             <OnOffButton />
             <LightSlider />
             <ColorPicker />
+            <ThemePicker />
         </div>
      );
 }
