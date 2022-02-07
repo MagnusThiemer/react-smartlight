@@ -5,13 +5,37 @@ import H1 from './H1'
 import H3 from './H3'
 import Lamp from './Lamp';
 import LightsScrollMenu from './LightsScrollMenu';
+import BackgroundBubbles from './BackgroundBubbles';
+import { motion } from 'framer-motion'
+import { duration } from '@mui/material';
+
 const HeaderSettings = (props) => {
+    
     let { room } = useParams()
     const roomData = JSON.parse(localStorage.getItem(room))
 
+    const headerVariants = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                ease: 'easeInOut',
+                duration: 0.8
+            }
+        }
+    }
+
     return ( 
-        <header className='bg-primary w-screen'>
-            <div className="flex justify-between items-start px-6 pb-6 max-w-full">
+        <header className='bg-primary w-screen relative'>
+            <BackgroundBubbles variants='bubblesAnimationSettings'/>
+            <motion.div 
+                className="flex justify-between items-start px-6 pb-6 max-w-full relative z-10"
+                variants={headerVariants}
+                initial='hidden'
+                animate='visible'
+                >
                 <Link to='/' className='flex items-center flex-wrap mt-6'>
                     <MdOutlineArrowBackIos className='text-white text-2xl font-bold w-10' />
                     <H1 input={`${room.replace('-', ' ')}`} className='text-white text-2xl font-bold w-10'/>
@@ -21,8 +45,8 @@ const HeaderSettings = (props) => {
                     />
                 </Link>
                 <Lamp />
-            </div>
-            <LightsScrollMenu array={roomData.lights} />
+            </motion.div>
+            <LightsScrollMenu lightsArray={roomData.lights} room={roomData.name} />
         </header>
      );
 }

@@ -11,8 +11,8 @@ const ColorPicker = () => {
           marginRight: '0.5rem',
           opacity: 1,
           transition: {
-            type: 'spring',
-            delay: 0.5
+            type: 'tween',
+            delay: 0.7
           }
         },
       }

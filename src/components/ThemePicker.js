@@ -29,9 +29,8 @@ const ThemePicker = () => {
           x: '0',
           opacity: 1,
           transition: {
-            type: 'spring',
-            stiffness: 80,
-            delay: 0.5
+            type: 'tween',
+            delay: 0.7
           }
         },
       }
