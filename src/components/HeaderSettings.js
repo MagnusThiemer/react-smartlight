@@ -5,13 +5,15 @@ import H1 from './H1'
 import H3 from './H3'
 import Lamp from './Lamp';
 import LightsScrollMenu from './LightsScrollMenu';
+import BackgroundBubbles from './BackgroundBubbles';
 const HeaderSettings = (props) => {
     let { room } = useParams()
     const roomData = JSON.parse(localStorage.getItem(room))
 
     return ( 
-        <header className='bg-primary w-screen'>
-            <div className="flex justify-between items-start px-6 pb-6 max-w-full">
+        <header className='bg-primary w-screen relative'>
+            <BackgroundBubbles variants='bubblesAnimationSettings'/>
+            <div className="flex justify-between items-start px-6 pb-6 max-w-full relative z-10">
                 <Link to='/' className='flex items-center flex-wrap mt-6'>
                     <MdOutlineArrowBackIos className='text-white text-2xl font-bold w-10' />
                     <H1 input={`${room.replace('-', ' ')}`} className='text-white text-2xl font-bold w-10'/>

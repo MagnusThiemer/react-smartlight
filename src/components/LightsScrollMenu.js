@@ -16,7 +16,7 @@ const LightsScrollMenu = ({array}) => {
           transition: {
             type: 'spring',
             stiffness: 50,
-            delay: 0.5
+            delay: 0.7
           }
         },
       }
