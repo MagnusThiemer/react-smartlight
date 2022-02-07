@@ -14,8 +14,7 @@ const LightsScrollMenu = ({array}) => {
         visible: {
           x: 0,
           transition: {
-            type: 'spring',
-            stiffness: 50,
+            type: 'tween',
             delay: 0.7
           }
         },
