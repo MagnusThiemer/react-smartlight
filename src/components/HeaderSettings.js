@@ -8,9 +8,12 @@ import LightsScrollMenu from './LightsScrollMenu';
 import BackgroundBubbles from './BackgroundBubbles';
 import { motion } from 'framer-motion'
 import { duration } from '@mui/material';
+
 const HeaderSettings = (props) => {
+    
     let { room } = useParams()
     const roomData = JSON.parse(localStorage.getItem(room))
+
     const headerVariants = {
         hidden: {
             opacity: 0
@@ -43,7 +46,7 @@ const HeaderSettings = (props) => {
                 </Link>
                 <Lamp />
             </motion.div>
-            <LightsScrollMenu array={roomData.lights} />
+            <LightsScrollMenu lightsArray={roomData.lights} room={roomData.name} />
         </header>
      );
 }

@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 
 const Home = () => {
     return ( 
-        <div className="bg-primary">
+        <>
             <HeaderHome />
             <RoomsNavigation data={LightsData}/>
             <Footer />
-        </div>
+        </>
      );
 }
  
