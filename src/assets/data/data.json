@@ -1,23 +1,23 @@
 {
     "data": [
         { 
-            "name": "Bed room",
-            "lights": ["Main light", "Desk lights", "Bed light", "Corner light"] 
+            "name": "Bed-room",
+            "lights": ["Main-light", "Desk-lights", "Bed-light", "Corner-light"] 
         }, { 
-            "name": "Living room",
-            "lights": ["Main light", "Table lights"] 
+            "name": "Living-room",
+            "lights": ["Main-light", "Table-lights"] 
         }, { 
             "name": "Kitchen",
-            "lights": ["Main light", "Table lights", "Work lights", ""] 
+            "lights": ["Main-light", "Table-lights", "Work-lights"] 
         }, { 
             "name": "Bathroom",
-            "lights": ["Main light"] 
+            "lights": ["Main-light"] 
         }, { 
             "name": "Outdoor",
-            "lights": ["Main light", "Garage lights", "Walkway lights", "Garden lights"] 
+            "lights": ["Main-light", "Garage-lights", "Walkway-lights", "Garden-lights"] 
         }, { 
             "name": "Balcony",
-            "lights": ["Main light", "Side lights"] 
+            "lights": ["Main-light", "Side-lights"] 
         }
     ]
 }
