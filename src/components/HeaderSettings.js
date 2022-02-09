@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 import { duration } from '@mui/material';
 
 const HeaderSettings = (props) => {
-    
+
     let { room } = useParams()
     const roomData = JSON.parse(localStorage.getItem(room))
 
@@ -44,7 +44,7 @@ const HeaderSettings = (props) => {
                         className='w-full pl-10 pt-6 text-highlight font-bold'
                     />
                 </Link>
-                <Lamp />
+                <Lamp lightSettings={props.lightSettings}/>
             </motion.div>
             <LightsScrollMenu lightsArray={roomData.lights} room={roomData.name} />
         </header>

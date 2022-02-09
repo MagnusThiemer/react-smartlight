@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
 const colorClasses = ['bg-setting-red', 'bg-setting-green', 'bg-setting-blue', 'bg-setting-purple', 'bg-setting-pink', 'bg-setting-orange', 'bg-white']
-const ColorPicker = () => {
+const ColorPicker = ({lightSettings, setLightSettings}) => {
     const colorButtonVariants = {
         hidden: {
           marginRight: '-1rem',
@@ -17,6 +17,16 @@ const ColorPicker = () => {
         },
       }
 
+      const setColor = (event) => {
+        let bgColor = window.getComputedStyle(event.target).backgroundColor;
+        setLightSettings({
+          ...lightSettings,
+          backgroundColor: bgColor,
+          color: bgColor
+        })
+        console.log(lightSettings)
+      }
+
 
     return ( 
         <div className='flex ml-6'>
@@ -25,7 +35,8 @@ const ColorPicker = () => {
                     className={`rounded-full h-7 w-7 grid ${color}`}
                     variants={colorButtonVariants}
                     initial='hidden'
-                    animate='visible'>
+                    animate='visible'
+                    onClick={(event) => setColor(event)}>
                         {color == 'bg-white' && <div className='text-text-dark font-bold place-self-center'>+</div>}
                 </motion.div>
             ))}

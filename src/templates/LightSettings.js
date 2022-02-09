@@ -8,7 +8,7 @@ import OnOffButton from '../components/OnOffButton';
 import ThemePicker from '../components/ThemePicker';
 import { duration } from '@mui/material';
 
-const LightSettings = () => {
+const LightSettings = ({lightSettings, setLightSettings}) => {
     const variants = {
         hidden: {
             y: '100vh'
@@ -36,10 +36,10 @@ const LightSettings = () => {
             initial='hidden'
             animate='visible'
         >
-            <OnOffButton />
-            <LightSlider />
-            <ColorPicker />
-            <ThemePicker />
+            <OnOffButton lightSettings={lightSettings} setLightSettings={setLightSettings}/>
+            <LightSlider lightSettings={lightSettings} setLightSettings={setLightSettings}/>
+            <ColorPicker lightSettings={lightSettings} setLightSettings={setLightSettings}/>
+            <ThemePicker lightSettings={lightSettings} setLightSettings={setLightSettings}/>
         </motion.div>
      );
 }
