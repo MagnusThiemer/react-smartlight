@@ -31,8 +31,8 @@ const RoomsNavigation = (props) => {
             >
             <P className='text-text-dark font-bold mb-4' input='All Rooms'/>
             <div className="flex flex-wrap gap-6 justify-between">
-            {props.data.data.map((room) => (
-                <RoomCard data={room} key={room.id}/>
+            {props.data.data.map((room, index) => (
+                <RoomCard data={room} key={index}/>
             ))}
             </div>
         </motion.div>
