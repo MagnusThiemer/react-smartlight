@@ -37,14 +37,14 @@ const ThemePicker = () => {
 
     return ( 
         <div className="flex flex-wrap p-6 gap-4 justify-between">
-            {themes.map((theme) => (
+            {themes.map((theme, index) => (
                     
                     <motion.div 
                         className={`flex text-white items-center bg-gradient-to-tr ${theme.colorFrom} ${theme.colorTo} p-4 rounded-2xl flex-1 w-2/5`}
                         variants={themes.indexOf(theme) % 2 !== 0  && themeButtonVariants}
                         initial='hidden'
                         animate='visible'
-                        
+                        key={index}
                         >
                         
                         <HiOutlineLightBulb className='text-2xl mr-3'/>

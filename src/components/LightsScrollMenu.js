@@ -34,19 +34,19 @@ const LightsScrollMenu = ({lightsArray, room}) => {
         >
             <ScrollMenu>
                 {lightsArray.map((item, index) => (
-                  <div>
+                  <div key={index}>
                     <div className={`truncate p-3 pr-5 mr-3 font-bold rounded-2xl bg-white text-text-dark flex items-center ${index === 0 && 'isActive bg-text-dark text-white'}`} onClick={setActive}>
 
-                        {item === 'Main-light' && <AiOutlineBulb className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Bed-light' && <IoMdBed className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Desk-lights' && <GiDesk className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Corner-light' && <GiBedLamp className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Table-lights' && <MdOutlineCountertops className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Work-lights' && <GiDeskLamp className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Garage-lights' && <GiHomeGarage className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Garden-lights' && <GiTreehouse className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Walkway-lights' && <GiStonePath className='mr-2 text-xl' onClick='none'/>}
-                        {item === 'Side-lights' && <GiBedLamp className='mr-2 text-xl' onClick='none'/>}
+                        {item === 'Main-light' && <AiOutlineBulb className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Bed-light' && <IoMdBed className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Desk-lights' && <GiDesk className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Corner-light' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Table-lights' && <MdOutlineCountertops className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Work-lights' && <GiDeskLamp className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Garage-lights' && <GiHomeGarage className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Garden-lights' && <GiTreehouse className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Walkway-lights' && <GiStonePath className='mr-2 text-xl pointer-events-none'/>}
+                        {item === 'Side-lights' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
 
                         {item.replace('-',' ')}
                     </div>

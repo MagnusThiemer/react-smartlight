@@ -1,10 +1,6 @@
 import LampImage from '../assets/light-bulb.svg'
 
 const Lamp = ({lightSettings}) => {
-    console.log(lightSettings)
-    
-
-
     return ( 
         <div className='w-32 relative'>
             <img src={LampImage} alt="lamp graphic" className='cover-contain z-20 relative'/>

@@ -24,15 +24,15 @@ const ColorPicker = ({lightSettings, setLightSettings}) => {
           backgroundColor: bgColor,
           color: bgColor
         })
-        console.log(lightSettings)
       }
 
 
     return ( 
         <div className='flex ml-6'>
-            {colorClasses.map((color) => (
+            {colorClasses.map((color, index) => (
                 <motion.div 
                     className={`rounded-full h-7 w-7 grid ${color}`}
+                    key={index}
                     variants={colorButtonVariants}
                     initial='hidden'
                     animate='visible'
