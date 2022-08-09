@@ -4,15 +4,16 @@ import Settings from './pages/Settings';
 import { useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
+
 function App() {
   const location = useLocation();
   return (
-    <AnimatePresence>
-      <Routes location={location} key={location.key}>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/settings/:room' element={<Settings />}/>
-      </Routes>
-    </AnimatePresence>
+      <AnimatePresence>
+        <Routes location={location} key={location.key}>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/settings/:room' element={<Settings />}/>
+        </Routes>
+      </AnimatePresence>
   );
 }
 

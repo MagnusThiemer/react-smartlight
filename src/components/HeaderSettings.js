@@ -7,7 +7,6 @@ import Lamp from './Lamp';
 import LightsScrollMenu from './LightsScrollMenu';
 import BackgroundBubbles from './BackgroundBubbles';
 import { motion } from 'framer-motion'
-import { duration } from '@mui/material';
 
 const HeaderSettings = (props) => {
 
