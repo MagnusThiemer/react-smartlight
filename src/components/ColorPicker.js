@@ -5,7 +5,7 @@ import { StateContext } from '../context/context';
 
 const colorClasses = ['bg-setting-red', 'bg-setting-green', 'bg-setting-blue', 'bg-setting-purple', 'bg-setting-pink', 'bg-setting-orange', 'bg-white']
 const ColorPicker = ({lightSettings, setLightSettings}) => {
-  const {stateObject, setStateObject} = useContext(StateContext)
+  const {setStateObject} = useContext(StateContext)
 
   function getRGBValues(str) {
     var vals = str.substring(str.indexOf('(') +1, str.length -1).split(', ');
@@ -56,7 +56,7 @@ const ColorPicker = ({lightSettings, setLightSettings}) => {
                     initial='hidden'
                     animate='visible'
                     onClick={(event) => setColor(event)}>
-                        {color == 'bg-white' && <div className='text-text-dark font-bold place-self-center'>+</div>}
+                        {color === 'bg-white' && <div className='text-text-dark font-bold place-self-center'>+</div>}
                 </motion.div>
             ))}
   

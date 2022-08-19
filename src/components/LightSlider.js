@@ -1,12 +1,9 @@
 import { BsLightbulb, BsLightbulbOff } from 'react-icons/bs'
 import Slider from '@mui/material/Slider';
-/* import Slider from "rc-slider"; */
-/* import "rc-slider/assets/index.css"; */
 import { useState } from 'react'
 import { StateContext } from '../context/context';
 import { useContext } from 'react';
-import { useEffect, Suspense } from 'react';
-
+import { useEffect } from 'react';
 
 const LightSlider = ({lightSettings, setLightSettings}) => {
     const {stateObject, setStateObject} = useContext(StateContext)
@@ -27,7 +24,6 @@ const LightSlider = ({lightSettings, setLightSettings}) => {
 
     useEffect(() => {
         setDefaultValue(brightness)
-        console.log(brightness)
         if(brightness == 0){
             setStateObject({
                 bri: lightSettings.bri,

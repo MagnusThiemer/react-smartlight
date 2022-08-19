@@ -1,5 +1,4 @@
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { Link } from 'react-router-dom';
+import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import { AiOutlineBulb } from 'react-icons/ai'
 import { IoMdBed } from 'react-icons/io'
 import { GiDesk,GiBedLamp, GiDeskLamp, GiHomeGarage, GiTreehouse, GiStonePath } from 'react-icons/gi'
@@ -9,8 +8,8 @@ import { StateContext } from '../context/context';
 import { useContext, useEffect } from 'react';
 
 
-const LightsScrollMenu = ({lightsArray, room}) => {
-    const { fetchUrlAppendix, setFetchUrlAppendix } = useContext(StateContext)
+const LightsScrollMenu = ({lightsArray}) => {
+    const { setFetchUrlAppendix } = useContext(StateContext)
 
     const lightsScrollVariants = {
         hidden: {

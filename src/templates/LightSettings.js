@@ -1,17 +1,13 @@
 
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import ColorPicker from '../components/ColorPicker';
 
 import LightSlider from '../components/LightSlider';
 import OnOffButton from '../components/OnOffButton';
 import ThemePicker from '../components/ThemePicker';
-import { duration } from '@mui/material';
 
 const LightSettings = ({lightSettings, setLightSettings}) => {
 
-
-    
     const variants = {
         hidden: {
             y: '100vh'
