@@ -1,7 +1,20 @@
 import { motion } from 'framer-motion'
+import ColorConverter from "cie-rgb-color-converter";
+import { useContext } from 'react';
+import { StateContext } from '../context/context';
 
 const colorClasses = ['bg-setting-red', 'bg-setting-green', 'bg-setting-blue', 'bg-setting-purple', 'bg-setting-pink', 'bg-setting-orange', 'bg-white']
 const ColorPicker = ({lightSettings, setLightSettings}) => {
+  const {stateObject, setStateObject} = useContext(StateContext)
+
+  function getRGBValues(str) {
+    var vals = str.substring(str.indexOf('(') +1, str.length -1).split(', ');
+    return {
+      'r': vals[0],
+      'g': vals[1],
+      'b': vals[2]
+    };
+  }
     const colorButtonVariants = {
         hidden: {
           marginRight: '-1rem',
@@ -18,11 +31,17 @@ const ColorPicker = ({lightSettings, setLightSettings}) => {
       }
 
       const setColor = (event) => {
-        let bgColor = window.getComputedStyle(event.target).backgroundColor;
+        let color = window.getComputedStyle(event.target).backgroundColor
+        let colorObject = getRGBValues(color);
+        let xy = ColorConverter.rgbToXy(colorObject.r, colorObject.g, colorObject.b)
         setLightSettings({
           ...lightSettings,
-          backgroundColor: bgColor,
-          color: bgColor
+          xy: [xy.x, xy.y],
+          on: true
+        })
+        setStateObject({
+          xy: [xy.x, xy.y],
+          on: true
         })
       }
 

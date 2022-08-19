@@ -4,6 +4,8 @@ import bathtub from '../assets/bathtube.svg'
 import kitchen from '../assets/kitchen.svg'
 import balcony from '../assets/balcony.svg'
 import room from '../assets/room.svg'
+import key from '../assets/key.svg'
+import collaboration from '../assets/collaboration.svg'
 
 const RoomIcon = (props) => {
     return ( 
@@ -14,6 +16,8 @@ const RoomIcon = (props) => {
         {props.name === 'Bathroom' && <img src={bathtub} alt='bathroom'/>}
         {props.name === 'Outdoor' && <img src={house} alt='outdoor'/>}
         {props.name === 'Balcony' && <img src={balcony} alt='balcony'/>}
+        {props.name === 'Hall' && <img src={key} alt='hall' className='max-h-12'/>}
+        {props.name === 'Dining-room' && <img src={collaboration} alt='dining room' className='max-h-12'/>}
         
         </>
      );

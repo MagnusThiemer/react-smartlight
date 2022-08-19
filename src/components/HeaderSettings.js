@@ -7,11 +7,15 @@ import Lamp from './Lamp';
 import LightsScrollMenu from './LightsScrollMenu';
 import BackgroundBubbles from './BackgroundBubbles';
 import { motion } from 'framer-motion'
+import data from "../assets/data/data.json"
+import { useContext } from 'react';
 
-const HeaderSettings = (props) => {
+
+const HeaderSettings = ({lightSettings}) => {
 
     let { room } = useParams()
     const roomData = JSON.parse(localStorage.getItem(room))
+    
 
     const headerVariants = {
         hidden: {
@@ -43,9 +47,9 @@ const HeaderSettings = (props) => {
                         className='w-full pl-10 pt-6 text-highlight font-bold'
                     />
                 </Link>
-                <Lamp lightSettings={props.lightSettings}/>
+                <Lamp lightSettings={lightSettings}/>
             </motion.div>
-            <LightsScrollMenu lightsArray={roomData.lights} room={roomData.name} />
+            <LightsScrollMenu lightsArray={roomData.lights} room={roomData.name}/>
         </header>
      );
 }

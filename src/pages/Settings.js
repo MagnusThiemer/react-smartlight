@@ -3,14 +3,38 @@ import Footer from '../components/Footer';
 import HeaderSettings from '../components/HeaderSettings';
 import LightSettings from '../templates/LightSettings';
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import data from "../assets/data/data.json"
+import { StateContext } from "../context/context"
 
 const Settings = () => {
-    const [lightSettings, setLightSettings] = useState({
-        backgroundColor: '#000000',
-        color: '#000000',
-        boxShadow: `0px 0px 0px 0px`,
-    })
+
+    const {fetchUrlAppendix, setFetchUrlAppendix} = useContext(StateContext)
+    const {lightSettings, setLightSettings} = useContext(StateContext)
+    const {stateObject, setStateObject} = useContext(StateContext)
+
+    const baseUrl = data.url;
+
+    useEffect(() => {
+        let url = `${baseUrl}${fetchUrlAppendix}`;
+        let isMounted = true;
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if(isMounted){
+              setLightSettings(data.state)
+          }
+        })
+        return () => {isMounted = false}
+      }, [fetchUrlAppendix])
+
+    useEffect(() => {
+        let url = `${baseUrl}${fetchUrlAppendix}/state`;
+        fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify(stateObject)
+        })
+    }, [stateObject])
 
     return ( 
         <>

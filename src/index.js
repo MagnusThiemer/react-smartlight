@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import ErrorBoundary from './components/ErrorBoundary';
-import * as Sentry from '@sentry/react'
-import { BrowserTracing } from "@sentry/tracing";
+/* import ErrorBoundary from './components/ErrorBoundary';
+import * as Sentry from '@sentry/react' */
+/* import { BrowserTracing } from "@sentry/tracing"; */
 
-Sentry.init({
+/* Sentry.init({
   dsn: "https://8c79f6aeed4a43d3a21066af7184dbc3@o1143340.ingest.sentry.io/6203656",
   integrations: [new BrowserTracing()],
 
@@ -15,15 +15,15 @@ Sentry.init({
   // of transactions for performance monitoring.
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
-});
+}); */
 
 ReactDOM.render(
   <React.StrictMode>
-    <ErrorBoundary>
+{/*     <ErrorBoundary> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ErrorBoundary>
+{/*     </ErrorBoundary> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
