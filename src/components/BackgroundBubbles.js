@@ -33,7 +33,7 @@ const BackgroundBubbles = (props) => {
     return ( 
     <motion.div 
         className="absolute"
-        variants={props.variants == 'bubblesAnimationSettings' ? bubblesAnimationSettings : bubblesAnimationHome}
+        variants={props.variants === 'bubblesAnimationSettings' ? bubblesAnimationSettings : bubblesAnimationHome}
         initial='hidden'
         animate='visible'
     >

@@ -1,17 +1,15 @@
-import { Link } from 'react-router-dom'
 import Footer from '../components/Footer';
 import HeaderSettings from '../components/HeaderSettings';
 import LightSettings from '../templates/LightSettings';
-import { Routes, Route } from 'react-router-dom'
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import data from "../assets/data/data.json"
 import { StateContext } from "../context/context"
 
 const Settings = () => {
 
-    const {fetchUrlAppendix, setFetchUrlAppendix} = useContext(StateContext)
+    const {fetchUrlAppendix} = useContext(StateContext)
     const {lightSettings, setLightSettings} = useContext(StateContext)
-    const {stateObject, setStateObject} = useContext(StateContext)
+    const {stateObject} = useContext(StateContext)
 
     const baseUrl = data.url;
 
@@ -26,7 +24,7 @@ const Settings = () => {
           }
         })
         return () => {isMounted = false}
-      }, [fetchUrlAppendix])
+      }, [fetchUrlAppendix, baseUrl])
 
     useEffect(() => {
         let url = `${baseUrl}${fetchUrlAppendix}/state`;

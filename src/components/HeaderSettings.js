@@ -7,9 +7,6 @@ import Lamp from './Lamp';
 import LightsScrollMenu from './LightsScrollMenu';
 import BackgroundBubbles from './BackgroundBubbles';
 import { motion } from 'framer-motion'
-import data from "../assets/data/data.json"
-import { useContext } from 'react';
-
 
 const HeaderSettings = ({lightSettings}) => {
 

@@ -4,10 +4,9 @@ import ColorConverter from "cie-rgb-color-converter";
 import { StateContext } from '../context/context';
 
 const Lamp = ({lightSettings}) => {
-    const { fetchUrlAppendix, setFetchUrlAppendix } = useContext(StateContext)
+    const { fetchUrlAppendix } = useContext(StateContext)
     const [style, setStyle] = useState({});
 
-    /* lightSettings.on ? ColorConverter.xyBriToRgb(lightSettings.xy[0], lightSettings.xy[1], lightSettings.bri) : 'black'; */
     useEffect(() => {
         let rgb;
         let bri;
