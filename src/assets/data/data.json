@@ -2,22 +2,30 @@
     "data": [
         { 
             "name": "Bed-room",
-            "lights": ["Main-light", "Desk-lights", "Bed-light", "Corner-light"] 
+            "lights": [{"name":"Main-light (6)", "id": 6}, {"name":"Bed-light (49)", "id": 49}] 
         }, { 
             "name": "Living-room",
-            "lights": ["Main-light", "Table-lights"] 
+            "lights": [{"name":"Main-light (58)", "id": 58},{"name":"Side-light (59)", "id": 59}] 
         }, { 
             "name": "Kitchen",
-            "lights": ["Main-light", "Table-lights", "Work-lights"] 
+            "lights": [{"name":"Main-light (52)", "id": 52}, {"name":"Work-lights (53)", "id": 53}] 
+        }, {
+            "name": "Dining-room",
+            "lights": [{"name": "Main-light (50)", "id": 50}, {"name":"Side-light (36)", "id": 36}]
         }, { 
             "name": "Bathroom",
-            "lights": ["Main-light"] 
+            "lights": [{"name": "Main-light (47)", "id": 47}] 
         }, { 
             "name": "Outdoor",
-            "lights": ["Main-light", "Garage-lights", "Walkway-lights", "Garden-lights"] 
-        }, { 
-            "name": "Balcony",
-            "lights": ["Main-light", "Side-lights"] 
+            "lights": [
+                {"name":"Spa-light (57)", "id": 57}, 
+                {"name":"Patio-light 1 (56)", "id": 56},
+                {"name": "Tennis-court (22)", "id": 22},
+                {"name": "Garden-lights (27)", "id": 27}
+            ]}, { 
+            "name": "Hall",
+            "lights": [{"name": "Main-light (48)", "id": 48}] 
         }
-    ]
+    ],
+    "url": "http://192.168.8.100/api/T9NSd0MzWqfGCU8NOc7Y4pz0qJvRlVT6LLvQ1ysd"
 }

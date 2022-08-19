@@ -5,8 +5,13 @@ import { IoMdBed } from 'react-icons/io'
 import { GiDesk,GiBedLamp, GiDeskLamp, GiHomeGarage, GiTreehouse, GiStonePath } from 'react-icons/gi'
 import { MdOutlineCountertops } from 'react-icons/md'
 import { motion } from 'framer-motion'
+import { StateContext } from '../context/context';
+import { useContext, useEffect } from 'react';
+
 
 const LightsScrollMenu = ({lightsArray, room}) => {
+    const { fetchUrlAppendix, setFetchUrlAppendix } = useContext(StateContext)
+
     const lightsScrollVariants = {
         hidden: {
           x: '100vw',
@@ -20,11 +25,15 @@ const LightsScrollMenu = ({lightsArray, room}) => {
         },
       }
 
+    useEffect(() => {setFetchUrlAppendix(`/lights/${lightsArray[0].id}`)}, [])
 
+    // i setActive skal id'et for hver enkelt lampe sendes til fetch url'en.
     const setActive = (event) => {
       document.querySelector('.isActive').classList.remove('isActive', 'bg-text-dark', 'text-white');
       event.target.classList.add('isActive', 'bg-text-dark', 'text-white')
+      setFetchUrlAppendix(`/lights/${event.target.getAttribute('lightid')}`)
     }
+
     return ( 
         <motion.div 
             className='ml-6 pb-10 pt-6 overflow-hidden'
@@ -35,20 +44,19 @@ const LightsScrollMenu = ({lightsArray, room}) => {
             <ScrollMenu>
                 {lightsArray.map((item, index) => (
                   <div key={index}>
-                    <div className={`truncate p-3 pr-5 mr-3 font-bold rounded-2xl bg-white text-text-dark flex items-center ${index === 0 && 'isActive bg-text-dark text-white'}`} onClick={setActive}>
+                    <div className={`truncate p-3 pr-5 mr-3 font-bold rounded-2xl bg-white text-text-dark flex items-center ${index === 0 && 'isActive bg-text-dark text-white'}`} onClick={setActive} lightid={item.id}>
+                        {item.name === 'Main-light' && <AiOutlineBulb className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Bed-light' && <IoMdBed className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Desk-lights' && <GiDesk className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Corner-light' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Table-lights' && <MdOutlineCountertops className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Work-lights' && <GiDeskLamp className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Garage-lights' && <GiHomeGarage className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Garden-lights' && <GiTreehouse className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Walkway-lights' && <GiStonePath className='mr-2 text-xl pointer-events-none'/>}
+                        {item.name === 'Side-lights' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
 
-                        {item === 'Main-light' && <AiOutlineBulb className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Bed-light' && <IoMdBed className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Desk-lights' && <GiDesk className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Corner-light' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Table-lights' && <MdOutlineCountertops className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Work-lights' && <GiDeskLamp className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Garage-lights' && <GiHomeGarage className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Garden-lights' && <GiTreehouse className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Walkway-lights' && <GiStonePath className='mr-2 text-xl pointer-events-none'/>}
-                        {item === 'Side-lights' && <GiBedLamp className='mr-2 text-xl pointer-events-none'/>}
-
-                        {item.replace('-',' ')}
+                        {item.name.replace('-',' ')}
                     </div>
 
                   </div>

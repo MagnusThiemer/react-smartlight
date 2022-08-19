@@ -1,62 +1,73 @@
 import { BsLightbulb, BsLightbulbOff } from 'react-icons/bs'
 import Slider from '@mui/material/Slider';
+/* import Slider from "rc-slider"; */
+/* import "rc-slider/assets/index.css"; */
 import { useState } from 'react'
+import { StateContext } from '../context/context';
+import { useContext } from 'react';
+import { useEffect, Suspense } from 'react';
+
 
 const LightSlider = ({lightSettings, setLightSettings}) => {
-    const color = '#F3D654'
-    const [sliderColor, setSliderColor] = useState('rgb(209 213 219)')
-    const marks = ['0','20','40','60','80', '100']
-    const valuetext = 'value'
-    const [lightIntensity, setLightIntensity] = useState('0')
+    const {stateObject, setStateObject} = useContext(StateContext)
+    const [brightness, setBrightness] = useState(undefined);
+    let grey = 'rgb(209 213 219)'
+    let yellow = '#F3D654'
+    const [sliderColor, setSliderColor] = useState(grey)
+    const [defaultValue, setDefaultValue] = useState(25);
 
+    useEffect(() => {
+            setDefaultValue(lightSettings.bri)
+            if(lightSettings.on){
+                setSliderColor(yellow)
+            } else {
+                setSliderColor(grey)
+            }
+    }, [stateObject])
+
+    useEffect(() => {
+        setDefaultValue(brightness)
+        console.log(brightness)
+        if(brightness == 0){
+            setStateObject({
+                bri: lightSettings.bri,
+                on: false
+            })
+            setLightSettings({
+                ...lightSettings,
+                on: false,
+            })
+            setSliderColor(grey)
+        } else {
+            setStateObject({
+                bri: brightness
+            })
+            setSliderColor(yellow)
+            setLightSettings({
+                ...lightSettings,
+                on: true,
+                bri: brightness
+            })         
+        }
+    }, [brightness])
     
     return ( 
         <div className="flex justify-between items-center p-6">
             <BsLightbulbOff className='text-gray-300 text-3xl mr-4'/>
-            <Slider
-                defaultValue={30}
-                sx={{
-                    color: sliderColor
-                }}
-                aria-label="Custom marks"
-                defaultValue={0}
-                step={0.1}
-                marks
-                
-                valueLabelDisplay="off"
-                min={0}
-                max={1}
-                onChange={(event) => {
-                    setLightIntensity(event.target.value)
-                    if(event.target.value === 0){
-                        setSliderColor('rgb(209 213 219)')
-                        setLightSettings({
-                            ...lightSettings,
-                            boxShadow: '',
-                            color: '#000000',
-                            backgroundColor: '#000000'
-                        })
-                    } else {
-                        setSliderColor('#F3D654')
-                        if(lightSettings.color === '#000000'){
-                            setLightSettings({
-                                boxShadow: `0px 0px 6px ${lightIntensity*10}px`,
-                                color: 'rgb(235, 208, 149)',
-                                backgroundColor: 'rgb(235, 208, 149)'
-                            })
-                        } else {
-                            setLightSettings({
-                                ...lightSettings,
-                                boxShadow: `0px 0px 6px ${lightIntensity*10}px`
-                            })
-                        }
-                    }
-                }}
-                
-            />
-            <BsLightbulb className='text-gray-300 text-3xl ml-4' color={lightIntensity > 0 ? sliderColor : ''}/>
+                 <Slider
+                    sx={{color: sliderColor}}
+                    aria-label="Custom marks"
+                    step={25}
+                    marks
+                    value={defaultValue ? defaultValue : 50}
+                    valueLabelDisplay="off"
+                    min={0}
+                    max={255}
+                    onChange={(event) => setBrightness(event.target.value)}
+                    /> 
+            <BsLightbulb className='text-gray-300 text-3xl ml-4' color={lightSettings.on ? sliderColor : ''}/>
         </div>
-     );
+    );
 }
  
 export default LightSlider;
